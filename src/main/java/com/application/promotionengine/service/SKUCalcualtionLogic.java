@@ -26,7 +26,7 @@ public class SKUCalcualtionLogic {
 	public int PrmotionB(int b) {
 		int sumB = 0;
 		if(b!=0) {
-			sumB = ((b/3)*130)+((b-(b/3))*50);
+			sumB = ((b/2)*45)+((b-(b/3))*30);
 		}
 		return sumB;
 	}
