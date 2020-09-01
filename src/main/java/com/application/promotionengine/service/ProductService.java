@@ -18,17 +18,18 @@ public class ProductService {
 		Scanner in = new Scanner(System.in);
 		int numberOfElements = in.nextInt();
 		System.out.println("number of elements are "+numberOfElements);
-		System.out.println("please chose one prmotion no from the following ::// 1. Promotion A // 2. Promotion B // 3. Prmotion C & D ");
+		System.out.println("please chose one prmotion no from the following ::// chose 1 for Promotion A // chose 2 Promotion B //  chose 3 Prmotion C & D ");
 		int prmotionID = in.nextInt();
-		System.out.println("please enter the list of SKU Ids seprated by space");
+		System.out.println("please enter the list of SKU Ids in Capitals seprated by space");
 		String[] skuIDList = new String[numberOfElements];
 		for (int i = 0; i < numberOfElements; i++) {
 			skuIDList[i] = in.next();
 		}
 		in.close();
 		
-		if(numberOfElements!=skuIDList.length) {
-			throw new Exception("length of Array entered doesn't matches the no oF elements");
+		if(prmotionID!=1||prmotionID!=2||prmotionID!=3) {
+			System.out.println("wrong Promotion ID has been entered");
+			throw new Exception();
 		}
 
 		int totalPrice = priceClaculation(skuIDList,prmotionID);
