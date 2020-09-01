@@ -4,10 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceIml implements ProductService {
+	
+	@Autowired
+	SKUCalcualtionLogic sKUCalcualtionLogic;
 	
 	public void inputFromConsole() {
 		System.out.println("please enter the no of elemnet you want in cart");
@@ -28,7 +32,8 @@ public class ProductServiceIml implements ProductService {
 		System.out.println("Total Price for the transaction is : " +totalPrice );
 	}
 	
-	public int priceClaculation(String[] skuIDList,int PromotionID) {
+	public int priceClaculation(String[] skuIDList,int promotionID) {
+		int sumOfCalcualtion = 0; 
 		Map<String,Integer> SkduqauntityMap = new HashMap<String,Integer>();
 		int countA = 0;
 		int countB = 0;
@@ -53,7 +58,8 @@ public class ProductServiceIml implements ProductService {
 		SkduqauntityMap.put("B", countB);
 		SkduqauntityMap.put("C", countC);
 		SkduqauntityMap.put("D", countD);
-		return 0;
+		sumOfCalcualtion = sKUCalcualtionLogic.calculationLogicForSKU(SkduqauntityMap,promotionID);
+		return sumOfCalcualtion;
 	}
 
 	
