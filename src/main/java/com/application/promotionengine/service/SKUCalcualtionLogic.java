@@ -45,7 +45,7 @@ public class SKUCalcualtionLogic {
 	public int prmotionB(int b) {
 		int sumB = 0;
 		if(b!=0) {
-			if(b%2==0) {
+			if(b%2!=0) {
 				sumB = ((b/2)*45)+((b-((b/2)*2))*30);
 			}
 			else {
@@ -58,10 +58,10 @@ public class SKUCalcualtionLogic {
 	public int prmotionCandD(int c , int d) {
 		int sum=0;
 		if(c>d) {
-			sum = ((c-d)*30)+((c-(c-d))*20);
+			sum = ((c-d)*20)+(d*30);
 		}
 		else if(d>c){
-			sum = ((d-c)*30)+((d-(d-c))*15);
+			sum = ((d-c)*15)+(c*30);
 		}
 		else {
 			sum = c*30;
