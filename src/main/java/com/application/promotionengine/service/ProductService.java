@@ -14,6 +14,7 @@ public class ProductService {
 	SKUCalcualtionLogic sKUCalcualtionLogic;
 	
 	public void inputFromConsole() throws Exception {
+		int totalPrice= 0;
 		System.out.println("please enter the no of elemnet you want in cart");
 		Scanner in = new Scanner(System.in);
 		int numberOfElements = in.nextInt();
@@ -27,12 +28,16 @@ public class ProductService {
 		}
 		in.close();
 		
-		if(prmotionID!=1||prmotionID!=2||prmotionID!=3) {
+		if(prmotionID==1||prmotionID==2||prmotionID==3) {
+			totalPrice = priceClaculation(skuIDList,prmotionID);
+			
+		}
+		else {
 			System.out.println("wrong Promotion ID has been entered");
 			throw new Exception();
 		}
 
-		int totalPrice = priceClaculation(skuIDList,prmotionID);
+		
 		System.out.println("Total Price for the transaction is : " +totalPrice );
 	}
 	
